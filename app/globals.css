@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f6; /* Luxury Warm Ivory */
+  --foreground: #0e0e0e; /* Deep Obsidian Charcoal */
+  --gold: #c5a880; /* Brushed Champagne Gold */
+  --gold-hover: #b3956d; /* Deep Brushed Gold */
+  --gold-light: #f4efe2; /* Soft Crema Gold */
+  --bg-light: #f3f1e9; /* Soft Luxury Clay */
+  --dark: #0f0f0e; /* Obsidian Dark */
+  --dark-light: #1f1f1e; /* Charcoal Light */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-light: var(--gold-light);
+  --color-bg-light: var(--bg-light);
+  --color-dark: var(--dark);
+  --color-dark-light: var(--dark-light);
+  
+  --font-sans: var(--font-sans-custom), 'Montserrat', system-ui, sans-serif;
+  --font-serif: var(--font-serif-custom), 'Cinzel', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(197, 168, 128, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(197, 168, 128, 0.05) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Universal Custom Scrollbar across all elements & browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) var(--bg-light);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-hover);
+}
+
+/* Custom glassmorphism class */
+.glass-header {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Text Selection */
+::selection {
+  background-color: var(--gold);
+  color: #ffffff;
+}
+
+/* Global Consistent Bold & Readable Paragraph Styling */
+p {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Premium Button Split-Hover Transitions (Part Away in both directions) */
+.btn-part-away-dark {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: var(--gold) !important;
+  transition: color 0.4s ease;
+}
+
+.btn-part-away-dark::before,
+.btn-part-away-dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #171717; /* bg-dark color */
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-part-away-dark::before {
+  left: 0;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+.btn-part-away-dark::after {
+  right: 0;
+  transform: translateX(0);
+  transform-origin: right;
+}
+
+.btn-part-away-dark:hover::before {
+  transform: translateX(-100%);
+}
+
+.btn-part-away-dark:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-part-away-dark > * {
+  position: relative;
+  z-index: 10;
+}
+
+.btn-part-away-gold {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #171717 !important;
+  transition: color 0.4s ease;
+}
+
+.btn-part-away-gold::before,
+.btn-part-away-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: var(--gold); /* bg-gold color */
+  z-index: -1;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-part-away-gold::before {
+  left: 0;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+.btn-part-away-gold::after {
+  right: 0;
+  transform: translateX(0);
+  transform-origin: right;
+}
+
+.btn-part-away-gold:hover::before {
+  transform: translateX(-100%);
+}
+
+.btn-part-away-gold:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-part-away-gold > * {
+  position: relative;
+  z-index: 10;
+}
+
